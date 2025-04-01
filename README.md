@@ -76,19 +76,19 @@ O primeiro modelo implementado foi uma Regressão Linear simples utilizando a bi
 
 Em seguida, o modelo treinado foi utilizado para fazer previsões nos dados de teste com o método .predict(). As previsões foram comparadas aos valores reais de preço das casas no conjunto de teste para avaliar a performance.
 
-O MSE obtido pela Regressão Linear foi de 24.000 e o RMSE de 4.900. Ou seja, em média, as previsões erraram em US$4.900.
+O MSE obtido pela Regressão Linear foi de 0.5558915986952422 e o RMSE de 0.7455813830127749.
 
 # Treinamento do Modelo SVR
 
 O segundo modelo implementado foi um Support Vector Regressor (SVR) também da biblioteca scikit-learn. Foi realizado o mesmo processo: instanciação padrão, treinamento com .fit() e previsões no conjunto de teste com .predict().
 
-O MSE do SVR foi maior: 50.000. Consequentemente, o RMSE também foi pior: 7.200. O SVR teve erros médios de previsão de US$7.200, maior que o modelo linear.
+O MSE do SVR foi maior: 1.3320115421348744. Consequentemente, o RMSE também foi pior: 1.1541280440812771.
 
 # Treinamento do Modelo XGBoost
 
 Por fim, foi implementado um modelo de Regressão por Árvores de Decisão usando o algoritmo XGBoost. Novamente o mesmo processo de treino e previsões.
 
-O XGBoost obteve o melhor desempenho dentre os modelos, com MSE de 7.500 e RMSE de 2.700. Seus erros médios na amostra de teste foram de US$2.700, significativamente menor que os demais.
+O XGBoost obteve o melhor desempenho dentre os modelos, com MSE de 0.2225899267544737 e RMSE de 0.4717943691423984. Significativamente menor que os demais.
 
 # Conclusão
 
@@ -108,3 +108,18 @@ Cálculo de MSE e RMSE
 Comparação do erro médio de cada modelo
 Seleção do melhor modelo (XGBoost)
 
+# Hiperparametros 
+
+Apos a escolha do modelo decidi fazer alguns testes de parametro para otimizar a modelagem
+os melhores paramentor foram:
+{'booster': 'gbtree',
+ 'gamma': 0,
+ 'learning_rate': 0.2,
+ 'max_delta_step': 1,
+ 'max_depth': 7,
+ 'min_child_weight': 1,
+ 'n_jobs': 5,
+ 'objective': 'reg:squarederror',
+ 'subsample': 1}
+
+com estes paramentros alcancei MSE de 0.21638147438949515 e um RMSE de 0.4651682216032122, um desempenho significativo em relação ao defaut 
